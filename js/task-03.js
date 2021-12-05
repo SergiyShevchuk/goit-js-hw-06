@@ -12,16 +12,15 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+// for(let el of galleryItems) document.querySelector('.list').insertAdjacentHTML('beforeEnd', `<li><img class="item" src="${url}" alt="${alt}" width="200"/></li>`);
 
+const galleryItems = document.querySelector(".gallery");
 
-const gallery = document.querySelector('.gallery');
-const markup = images.map(({ url, alt }) => `<li><img src=${url} alt=${alt}></li>`).join("");
-gallery.insertAdjacentHTML("beforeend", markup);
-const item = gallery.querySelectorAll('li');
-item.forEach(el => {
-  el.classList.add('galery-item');
-});
-const img = gallery.querySelectorAll('img');
-img.forEach(el => {
-  el.classList.add('galery-img');
-})
+const markup = images
+  .map(({ url, alt }) => {
+    return `<li><img class="item" src="${url}" alt="${alt}" width="200"/></li>`;
+  })
+  .join("");
+
+galleryItems.insertAdjacentHTML("beforeend", markup);
+
